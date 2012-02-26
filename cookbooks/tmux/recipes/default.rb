@@ -19,3 +19,10 @@
 package "tmux" do
   action :install
 end
+
+cookbook_file ".tmux.conf" do
+  action :create_if_missing
+  source "tmux.conf"
+  path "#{ENV['HOME']}/.tmux.conf"
+  mode "0600"
+end
