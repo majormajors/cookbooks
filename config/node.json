@@ -1,3 +1,3 @@
 {
-  "run_list": [ "homebrew", "tmux", "rbenv" ]
+  "run_list": [ "homebrew", "tmux", "rbenv", "gvim" ]
 }
