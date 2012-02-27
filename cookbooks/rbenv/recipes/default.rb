@@ -12,3 +12,7 @@ git "#{ENV['HOME']}/.rbenv" do
   repository "https://github.com/sstephenson/rbenv.git"
   reference "master"
 end
+
+unless open(node['rbenv']['shell_init_file']).read =~ /^\s*eval \"\$\(rbenv init/
+  bash %{echo 'eval "$(rbenv init -)"' >> #{node['rbenv']['shell_init_file']}}
+end

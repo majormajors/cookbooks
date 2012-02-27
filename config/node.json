@@ -1,3 +1,3 @@
 {
-  "run_list": [ "homebrew", "tmux", "rbenv", "gvim" ]
+  "run_list": [ "homebrew", "tmux", "rbenv", "rbenv::ruby-build", "rbenv::install-rubies", "gvim" ]
 }
