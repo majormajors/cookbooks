@@ -8,6 +8,11 @@ node['rbenv']['rubies'].each do |ruby|
   end
 end
 
-bash "setting default ruby: #{node['rbenv']['rubies'].first}" do
-  code "rbenv global #{node['rbenv']['rubies'].first}"
+file "#{ENV['HOME']}/.rbenv/version" do
+  action :create_if_missing
+  mode "0644"
+  content node['rbenv']['default_ruby'] || node['rbenv']['rubies'].first
 end
+
+gem_package "bundler"
+bash "rbenv rehash"
